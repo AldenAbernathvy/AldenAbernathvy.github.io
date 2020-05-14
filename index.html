@@ -1,59 +1,417 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Home - AldenAbernathvy.github.io</title>
-	<style>
-	@import url(https://fonts.googleapis.com/css?family=Raleway:700);
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>MyBookList - Find the best book for you!</title>
+<meta name="description" content="Not sure what book to read next? See the most recommend books based on other people&rsquo;s booklists. You can also create and share your own book list with others if you wish. ">
+<meta name="keywords" content="My Book List, Recommend books, Booklist">
 
-	*, *:before, *:after {
-		box-sizing: border-box;
-	}
+<link rel="icon" href="images/icons/favicon.png" sizes="16x16" type="image/png">
+<link href="external/main.css" rel="stylesheet" type="text/css" />  
+  
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-	html {
-		height: 100%;
-	}
+<script type="text/JavaScript">
+<!--
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+//-->
+</script>
 
-	body {
-		background-size: cover;
-		font-family: 'Raleway', sans-serif;
-		background-color: #f4f4f4; 
-		height: 100%;
-	}
+<style type="text/css">
+<!--
+.jumbotron {
+    position: relative;
+    background: #000 url("images/book_cover.jpg") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+}
 
-	.text-wrapper {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+div.transbox {
+  margin: 30px;
+  background-color: #ffffff;
+  opacity: 0.8;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  padding: 2px;
+}
 
-	.title {
-		font-size: 4em;
-		font-weight: 700;
-		color: #333;
-	}
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
 
-	.subtitle {
-		font-size: 16px;
-		font-weight: 700;
-		color: #888;
-		text-align: center;
-	}
-	</style>
+-->
+</style>
 </head>
 <body>
-	<div class="text-wrapper">
-		<div class="title" data-content="404">
-			Under Construction
-		</div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112077535-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-		<div class="subtitle">
-			Our website is currently undergoing scheduled maintenance. <br>
-			We should be back shortly. Thank you for your patience.
+  gtag('config', 'UA-112077535-2');
+</script>
+
+<!-- TOP BANNER -->
+<header>
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			
+			<div class="navbar-header">
+				
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				
+				<a href="http://www.mybooklist.com/" class="navbar-brand"><img src="/images/Mybooklist Logo.png" alt="MyBookList Logo" style="max-width:130px"></a>	
+
+			</div>
+				
+			<div class="collapse navbar-collapse navbar-right" id="example">
+			
+			<form action="/booklist-categories.php" method="get" class="navbar-form navbar-left" role="search">
+			  <div class="form-group">
+				<input type="text" class="form-control" name="q" placeholder="Find a list">
+			  </div>
+			  <button type="submit" class="btn btn-default">Go!</button>
+			</form>
+			
+			<ul class="nav navbar-nav">
+				<li><a href="http://www.mybooklist.com/index.php">Home</a></li>
+				<li><a href="http://www.mybooklist.com/booklist-categories.php">All Booklists</a></li>
+									<li><a href="http://www.mybooklist.com/login.php">Login</a></li>
+												
+			</ul>
+			
+			</div>
+			
 		</div>
+	</div>		
+</header>
+	
+
+<p>&nbsp;</p>
+<p>&nbsp;</p><!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--JUMBOTRON-->
+<div class="jumbotron">  
+    <div class="container">
+			
+		<div class="transbox">
+			<h1 class="text-center"><strong class="black">Find a book list that’s right for you</strong></h1>
+			<h2 class="text-center">We now have over +1,000 lists!</h2>
+		</div>		
+	
+	</div><!--CONTAINER-->
+</div><!--JUMBOTRON-->
+
+
+<div class="container">
+	
+	<!--ROW1-->
+	<div class="row">
+	  
+	  <!--R1:C1-->
+	  <div class="col-md-5">
+	  
+		<h2 class="headerRuler"><small><strong>Select a booklist by category</strong></small></h2>
+		<br>
+
+		<ul>
+					<li><a href="http://www.mybooklist.com/category/Arts-and-Photography">Arts & Photography</a></li>
+					<li><a href="http://www.mybooklist.com/category/Biographies-and-Memoirs">Biographies & Memoirs</a></li>
+					<li><a href="http://www.mybooklist.com/category/Business-and-Investing">Business & Investing</a></li>
+					<li><a href="http://www.mybooklist.com/category/Childrens-Books">Childrens Books</a></li>
+					<li><a href="http://www.mybooklist.com/category/Christian-Books-and-Bibles">Christian Books & Bibles</a></li>
+					<li><a href="http://www.mybooklist.com/category/Comics-and-Graphic-Novels">Comics & Graphic Novels</a></li>
+					<li><a href="http://www.mybooklist.com/category/Computers-and-Technology">Computers & Technology</a></li>
+					<li><a href="http://www.mybooklist.com/category/Cookbooks-or-Food-and-Wine">Cookbooks, Food & Wine</a></li>
+					<li><a href="http://www.mybooklist.com/category/Crafts-and-Hobbies">Crafts & Hobbies</a></li>
+					<li><a href="http://www.mybooklist.com/category/Education-and-Teaching">Education & Teaching</a></li>
+					<li><a href="http://www.mybooklist.com/category/Engineering">Engineering</a></li>
+					<li><a href="http://www.mybooklist.com/category/Gay-and-Lesbian">Gay & Lesbian</a></li>
+					<li><a href="http://www.mybooklist.com/category/Health-or-Fitness-and-Dieting">Health, Fitness & Dieting</a></li>
+					<li><a href="http://www.mybooklist.com/category/History">History</a></li>
+					<li><a href="http://www.mybooklist.com/category/Home-and-Garden">Home & Garden</a></li>
+					<li><a href="http://www.mybooklist.com/category/Humor-and-Entertainment">Humor & Entertainment</a></li>
+					<li><a href="http://www.mybooklist.com/category/Law">Law</a></li>
+					<li><a href="http://www.mybooklist.com/category/Literature-and-Fiction">Literature & Fiction</a></li>
+					<li><a href="http://www.mybooklist.com/category/Medicine-and-Nursing">Medicine & Nursing</a></li>
+					<li><a href="http://www.mybooklist.com/category/Mystery-or-Thriller-and-Suspense">Mystery, Thriller & Suspense</a></li>
+					<li><a href="http://www.mybooklist.com/category/Pets">Pets</a></li>
+					<li><a href="http://www.mybooklist.com/category/Philosophy">Philosophy</a></li>
+					<li><a href="http://www.mybooklist.com/category/Politics-and-Social-Sciences">Politics & Social Sciences</a></li>
+					<li><a href="http://www.mybooklist.com/category/Psychology">Psychology</a></li>
+					<li><a href="http://www.mybooklist.com/category/Reference">Reference</a></li>
+					<li><a href="http://www.mybooklist.com/category/Religion-and-Spirituality">Religion & Spirituality</a></li>
+					<li><a href="http://www.mybooklist.com/category/Romance">Romance</a></li>
+					<li><a href="http://www.mybooklist.com/category/Science-and-Math">Science & Math</a></li>
+					<li><a href="http://www.mybooklist.com/category/Science-Fiction-and-Fantasy">Science Fiction & Fantasy</a></li>
+					<li><a href="http://www.mybooklist.com/category/Self_Help-and-Relationships">Self-Help & Relationships</a></li>
+					<li><a href="http://www.mybooklist.com/category/Sports-and-Outdoors">Sports & Outdoors</a></li>
+					<li><a href="http://www.mybooklist.com/category/Teen-and-Young-Adult">Teen & Young Adult</a></li>
+					<li><a href="http://www.mybooklist.com/category/Transportation">Transportation</a></li>
+					<li><a href="http://www.mybooklist.com/category/Travel">Travel</a></li>
+					<li><a href="http://www.mybooklist.com/category/Various">Various</a></li>
+					<li><a href="http://www.mybooklist.com/category/Weddings">Weddings</a></li>
+			  	</ul>
+
+		<br />
+		<h2 class="headerRuler"><small><strong>12 most viewed pages</strong></small></h2>
+		<br>	
+
+		<ol>
+					<li><a href="http://www.mybooklist.com/page/List-of-Over-1000-Popular-Books">List of Over 1000 Popular Books</a></li>
+					<li><a href="http://www.mybooklist.com/page/Libros-Populares-en-EspaA�ol">Libros Populares en Español</a></li>
+					<li><a href="http://www.mybooklist.com/page/The-Best-BMW-Automotive-Books">The Best BMW Automotive Books</a></li>
+					<li><a href="http://www.mybooklist.com/page/Over-300-Programming-Books">Over 300 Programming Books</a></li>
+					<li><a href="http://www.mybooklist.com/page/Top-10-Ecommerce-books-list-by-About-Money">Top 10 Ecommerce books list by About Money ™</a></li>
+					<li><a href="http://www.mybooklist.com/page/80-Best-Books-Every-Man-Should-Read-List-by-Esquire">80 Best Books Every Man Should Read - List by Esquire™</a></li>
+					<li><a href="http://www.mybooklist.com/page/List-of-40-Books-every-Investor-needs-to-read-List-by-MarketWatch">List of 40 Books every Investor needs to read - List by MarketWatch™</a></li>
+					<li><a href="http://www.mybooklist.com/page/The-20-most-influential-books-in-history-list-compiled-by-World-Economic-Forum">The 20 most influential books in history list compiled by World Economic Forum™</a></li>
+					<li><a href="http://www.mybooklist.com/page/List-of-2015-Best-74-Books-by-Bloomberg">List of 2015 Best 74 Books by Bloomberg™</a></li>
+					<li><a href="http://www.mybooklist.com/page/110-Classical-Books-to-Read">110 Classical Books to Read</a></li>
+					<li><a href="http://www.mybooklist.com/page/25-Best-selling-self-help-books-List-by-Great-Minds-Inspire">25 Best selling self-help books - List by Great Minds Inspire™</a></li>
+					<li><a href="http://www.mybooklist.com/page/60-Libros-Populares-de-Historia">60 Libros Populares de Historia</a></li>
+				</ol>
+
+	  </div><!--R1:C1-->
+	  
+	  <!--R1:C2-->
+	  <div class="col-md-1"></div><!--R1:C2-->
+	  
+	  <!--R1:C3-->
+	  <div class="col-md-6">
+	  
+		<h2 class="headerRuler"><small><strong>Top <span class="purple">10</span> books according to all booklists</strong></small></h2>
+		
+					
+			<h4><strong>#1.</strong> <a href="/book/How-to-Win-Friends-and-Influence-People-Dale-Carnegie-1439167346-9781439167342-book">How to Win Friends and Influence People</a></h4>
+							
+							<strong>Author(s):</strong> Dale Carnegie<br />
+						
+							<strong>ISBN 13:</strong> 9781439167342<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/How-to-Win-Friends-and-Influence-People-Dale-Carnegie-1439167346-9781439167342-book" target="_blank" class="green">This book is in (17) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#2.</strong> <a href="/book/Elon-Musk-Tesla-SpaceX-and-the-Quest-for-a-Fantastic-Future-Ashlee-Vance-0062301233-9780062301239-book">Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future</a></h4>
+							
+							<strong>Author(s):</strong> Ashlee Vance<br />
+						
+							<strong>ISBN 13:</strong> 9780062301239<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Elon-Musk-Tesla-SpaceX-and-the-Quest-for-a-Fantastic-Future-Ashlee-Vance-0062301233-9780062301239-book" target="_blank" class="green">This book is in (15) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#3.</strong> <a href="/book/Rich-Dad-Poor-Dad-Robert-T-Kiyosaki-1612680011-9781612680019-book">Rich Dad Poor Dad</a></h4>
+							
+							<strong>Author(s):</strong> Robert T. Kiyosaki<br />
+						
+							<strong>ISBN 13:</strong> 9781612680019<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Rich-Dad-Poor-Dad-Robert-T-Kiyosaki-1612680011-9781612680019-book" target="_blank" class="green">This book is in (15) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#4.</strong> <a href="/book/Influence-The-Psychology-of-Persuasion-Robert-B-Cialdini-006124189X-9780061241895-book">Influence: The Psychology of Persuasion</a></h4>
+							
+							<strong>Author(s):</strong> Robert B. Cialdini<br />
+						
+							<strong>ISBN 13:</strong> 9780061241895<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Influence-The-Psychology-of-Persuasion-Robert-B-Cialdini-006124189X-9780061241895-book" target="_blank" class="green">This book is in (14) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#5.</strong> <a href="/book/Good-to-Great-Why-Some-Companies-Make-the-Leap-and-Others-Don-t-Jim-Collins-0066620996-9780066620992-book">Good to Great: Why Some Companies Make the Leap...and Others Don&#039;t</a></h4>
+							
+							<strong>Author(s):</strong> Jim Collins<br />
+						
+							<strong>ISBN 13:</strong> 9780066620992<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Good-to-Great-Why-Some-Companies-Make-the-Leap-and-Others-Don-t-Jim-Collins-0066620996-9780066620992-book" target="_blank" class="green">This book is in (13) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#6.</strong> <a href="/book/The-4-hour-Workweek-Timothy-Ferriss-0307465357-9780307465351-book">The 4-hour Workweek</a></h4>
+							
+							<strong>Author(s):</strong> Timothy Ferriss<br />
+						
+							<strong>ISBN 13:</strong> 9780307465351<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/The-4-hour-Workweek-Timothy-Ferriss-0307465357-9780307465351-book" target="_blank" class="green">This book is in (13) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#7.</strong> <a href="/book/Shoe-Dog-A-Memoir-by-the-Creator-of-Nike-Phil-Knight-1501135910-9781501135910-book">Shoe Dog: A Memoir by the Creator of Nike</a></h4>
+							
+							<strong>Author(s):</strong> Phil Knight<br />
+						
+							<strong>ISBN 13:</strong> 9781501135910<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Shoe-Dog-A-Memoir-by-the-Creator-of-Nike-Phil-Knight-1501135910-9781501135910-book" target="_blank" class="green">This book is in (12) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#8.</strong> <a href="/book/Outliers-The-Story-of-Success-Malcolm-Gladwell-0316017930-9780316017930-book">Outliers: The Story of Success</a></h4>
+							
+							<strong>Author(s):</strong> Malcolm Gladwell<br />
+						
+							<strong>ISBN 13:</strong> 9780316017930<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Outliers-The-Story-of-Success-Malcolm-Gladwell-0316017930-9780316017930-book" target="_blank" class="green">This book is in (12) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#9.</strong> <a href="/book/The-Intelligent-Investor-The-Classic-Text-on-Value-Investing-Benjamin-Graham-0060752610-9780060752613-book">The Intelligent Investor: The Classic Text on Value Investing</a></h4>
+							
+							<strong>Author(s):</strong> Benjamin Graham<br />
+						
+							<strong>ISBN 13:</strong> 9780060752613<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/The-Intelligent-Investor-The-Classic-Text-on-Value-Investing-Benjamin-Graham-0060752610-9780060752613-book" target="_blank" class="green">This book is in (12) other book lists, learn more.</a>
+						
+			<br><br>
+				
+					
+			<h4><strong>#10.</strong> <a href="/book/Presence-Bringing-Your-Boldest-Self-to-Your-Biggest-Challenges-Amy-Cuddy-0316256579-9780316256575-book">Presence: Bringing Your Boldest Self to Your Biggest Challenges</a></h4>
+							
+							<strong>Author(s):</strong> Amy Cuddy<br />
+						
+							<strong>ISBN 13:</strong> 9780316256575<br />
+						
+					
+			
+			
+							<a href="http://www.mybooklist.com/book/Presence-Bringing-Your-Boldest-Self-to-Your-Biggest-Challenges-Amy-Cuddy-0316256579-9780316256575-book" target="_blank" class="green">This book is in (11) other book lists, learn more.</a>
+						
+			<br><br>
+				
+		
+		<h4><a href="/top-50-most-recommended-books/">See all: Top 50 Most Recommended Books</a></h4>
+	  
+	  </div><!--R1:C3-->
+	</div><!--ROW1-->
+	
+	<hr />
+	<div id="GoogleAdSense"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- adsense_1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2557882892565869"
+     data-ad-slot="8344798657"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><!--GOOGLE ADSENSE-->
+	
+</div><!--END CONTAINER-->
+
+	
+<!-- TOP BANNER -->
+<footer>
+	<div class="container">
+		<hr />
+
+		<div class="row">
+		  <div class="col-md-1"></div>
+		  <div class="col-md-2">
+		  
+			<h4><strong>Search Options</strong></h4>
+			<a href="http://www.mybooklist.com/category/">Pages</a><br />
+			<a href="/top-50-most-recommended-books/">Top 50 Most Recommended Books</a>
+			<a href="http://www.mybooklist.com/add-a-book.php">Add a book</a>
+
+		  </div>
+		  
+		  <div class="col-md-2">
+			<h4><strong>More Options</strong></h4>
+			<a href="http://www.mybooklist.com/index.php">Home</a> <br />
+			<a href="http://www.mybooklist.com/account/index.php">My Account</a> <br />
+			<a href="http://www.mybooklist.com/about-us/">About us</a> <br />
+			<a href="http://www.mybooklist.com/contact-us/">Contact us</a>
+		  </div>
+		   
+		  			  
+		  <div class="col-md-6">
+		  	<h4><strong>About MyBookList</strong></h4>
+				<span class="grey">As a book lover, we know how hard it can be to find the next book to read, thus we have over 1,151 book lists to help you find the book that is right for you. Furthermore, being a small globalized world, we offer book lists in multiple languages, so that way more of us can participate.</span>
+		   </div>
+		  
+		  <div class="col-md-1"></div>
+		</div>
+		
+		<hr />
+		
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="/index.php">&copy;2020 My Book List</a></li>
+			<li><a href="https://twitter.com/My_BookList" target="_blank">Twitter</a></li>
+		</ul>
+
 	</div>
+</footer>
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>
